@@ -30,3 +30,11 @@ func _physics_process(delta):
 			motion.y = -jump
 		
 	motion = move_and_slide(motion,UP)
+
+func _process(delta):
+	if Input.is_action_just_pressed("slot1"):
+		global.equipped = [1,0,0]
+	if Input.is_action_just_pressed("slot2"):
+		global.equipped = [0,1,0]
+	if Input.is_action_just_pressed("slot3"):
+		global.equipped = [0,0,1]
