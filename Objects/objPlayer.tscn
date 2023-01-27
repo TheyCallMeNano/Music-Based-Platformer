@@ -23,3 +23,125 @@ offset = Vector2( 0, -70 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
 script = ExtResource( 3 )
+
+[node name="Raycast" type="Node2D" parent="."]
+
+[node name="RayCast01" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast02" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.65806
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast03" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.74533
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast04" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.8326
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast05" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.91986
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast06" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -2.00713
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast07" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -2.0944
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast08" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -2.18166
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast09" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -2.26893
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast10" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -2.35619
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast11" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -2.44346
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast12" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -2.53073
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast13" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -2.61799
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast14" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.48353
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast15" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.39626
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast16" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.309
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast17" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.22173
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast18" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.13446
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast19" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -1.0472
+enabled = true
+cast_to = Vector2( 0, 500 )
+
+[node name="RayCast20" type="RayCast2D" parent="Raycast"]
+position = Vector2( 10, -1 )
+rotation = -0.959931
+enabled = true
+cast_to = Vector2( 0, 500 )
