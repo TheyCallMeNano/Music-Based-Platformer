@@ -4,7 +4,7 @@ extends KinematicBody2D
 const speed = 800
 const jump = -200
 const grav = 8
-const accl = 25
+const accl = 50
 
 const UP = Vector2(0,-1)
 
@@ -30,16 +30,3 @@ func _physics_process(delta):
 			motion.y = -jump
 		
 	motion = move_and_slide(motion,UP)
-
-func equipState(delta):
-	if Input.is_action_just_pressed("equip_1"):
-		#TODO
-		print("equipped item 1")
-		#change background to 1
-	elif Input.is_action_just_pressed("equip_2"):
-		print("equipped item 2")
-		#change background to 2
-	elif Input.is_action_just_pressed("equip_3"):
-		print("equipped item 3")
-		#change background to 3
-		
