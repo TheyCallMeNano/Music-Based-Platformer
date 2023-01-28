@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 const speed = 800
 const jump = -200
-const grav = 10
+const grav = 12
 const accl = 50
 
 const UP = Vector2(0,-1)
