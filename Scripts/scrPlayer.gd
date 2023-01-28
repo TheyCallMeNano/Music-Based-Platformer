@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 const speed = 800
 const jump = -200
-const grav = 8
+const grav = 10
 const accl = 50
 
 const UP = Vector2(0,-1)
@@ -49,17 +49,17 @@ func _physics_process(delta):
 		motion = move_and_slide(motion)
 
 func _draw():
-	var pos = global_position
+	#var pos = global_position
 	if hooked:
 		draw_line(Vector2(0,-1), to_local(hookPos), Color(0.35, 0.7, 0.9), 3, true)
 	else:
 		return
-		var colliding = $Raycast.is_colliding()
-		var collidePoint = $Raycast.get_collision_point()
-		if colliding && pos.distance_to(collidePoint):
-			draw_line(Vector2(0,-1), to_local(collidePoint), Color(1,1,1), 0.5, true)
+		#var colliding = $Raycast.is_colliding()
+		#var collidePoint = $Raycast.get_collision_point()
+		#if colliding && pos.distance_to(collidePoint):
+			#draw_line(Vector2(0,-1), to_local(collidePoint), Color(1,1,1), 0.5, true)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("slot1"):
 		global.equipped = [1,0,0]
 	if Input.is_action_just_pressed("slot2"):
