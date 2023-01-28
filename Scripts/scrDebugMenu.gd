@@ -1,6 +1,6 @@
 extends Label
 
-func _process(delta):
+func _process(_delta):
 	##Print debug variables for in game tracking.
 	## This is super messy and requires one giant set_text function decreasing framerate. This is terrible, too bad!
 	## Debug key is "F4" (Check Project > Project Settings for all keybindings)
