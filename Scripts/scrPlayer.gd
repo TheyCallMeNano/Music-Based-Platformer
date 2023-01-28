@@ -1,6 +1,7 @@
 #This is essentially what we are modifiying
 extends KinematicBody2D
 
+
 const speed = 800
 const jump = -200
 const grav = 12
@@ -14,22 +15,24 @@ var hookPos = Vector2()
 var hooked = false
 var ropeLength = 500
 var currentRopeLength
-
-onready var animationPlayer = $AnimationPlayer
+onready var animatedSprite = get_node("AnimatedSprite")
+onready var animationPlayer = get_node("AnimationPlayer")
 
 func _ready():
 	currentRopeLength = ropeLength
-
+	animatedSprite.frames.get_frame("idle", 0)
+	
+	
 func _physics_process(delta):
 	motion.y += grav
 	
 	if Input.is_action_pressed("moveRight"):
 		motion.x = min(motion.x+accl,speed)
-		animationPlayer.play("Run")
+		animationPlayer.play("running")
 	
 	elif Input.is_action_pressed("moveLeft"):
 		motion.x = max(motion.x-accl,-speed)
-		animationPlayer.play("Run")
+		animationPlayer.play("running")
 	
 	else:
 		motion.x = lerp(motion.x,0,0.2)
@@ -42,7 +45,7 @@ func _physics_process(delta):
 			motion.y = -jump
 		
 	motion = move_and_slide(motion,UP)
-	animationPlayer.play("Idle")
+	animationPlayer.play("idle")
 	
 	if global.equipped == [0,0,1]:
 		hook()
@@ -103,5 +106,5 @@ func hookSwing(delta):
 	motion += (hookPos - global_position).normalized() * 15000 * delta
 
 
-func _on_Node2D_body_entered(body):
+func _on_Node2D_body_entered_(_body):
 	global.speedTally = speed

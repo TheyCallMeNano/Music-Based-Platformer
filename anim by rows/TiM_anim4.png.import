@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprPlayer.png-2ac884263fabe45e52a53970caa65834.stex"
+path="res://.import/TiM_anim4.png-cd26be507b43a150743d160affd05b1e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/sprPlayer.png"
-dest_files=[ "res://.import/sprPlayer.png-2ac884263fabe45e52a53970caa65834.stex" ]
+source_file="res://anim by rows/TiM_anim4.png"
+dest_files=[ "res://.import/TiM_anim4.png-cd26be507b43a150743d160affd05b1e.stex" ]
 
 [params]
 
