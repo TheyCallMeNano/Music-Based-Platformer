@@ -15,6 +15,8 @@ var hooked = false
 var ropeLength = 500
 var currentRopeLength
 
+onready var animationPlayer = $AnimationPlayer
+
 func _ready():
 	currentRopeLength = ropeLength
 
@@ -23,9 +25,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("moveRight"):
 		motion.x = min(motion.x+accl,speed)
+		animationPlayer.play("Run")
 	
 	elif Input.is_action_pressed("moveLeft"):
 		motion.x = max(motion.x-accl,-speed)
+		animationPlayer.play("Run")
 	
 	else:
 		motion.x = lerp(motion.x,0,0.2)
@@ -38,8 +42,10 @@ func _physics_process(delta):
 			motion.y = -jump
 		
 	motion = move_and_slide(motion,UP)
+	animationPlayer.play("Idle")
 	
-	hook()
+	if global.equipped == [0,0,1]:
+		hook()
 	update()
 	if hooked:
 		motion.y += grav
@@ -65,7 +71,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("slot2"):
 		global.equipped = [0,1,0]
 	if Input.is_action_just_pressed("slot3"):
-		global.equipped = [0,0,1]
+		if global.grappleBought == true:
+			global.equipped = [0,0,1]
 
 func hook():
 	$Raycast.look_at(get_global_mouse_position())
@@ -94,3 +101,7 @@ func hookSwing(delta):
 		global_position = hookPos + radius.normalized() * currentRopeLength
 	
 	motion += (hookPos - global_position).normalized() * 15000 * delta
+
+
+func _on_Node2D_body_entered(body):
+	global.speedTally = speed
