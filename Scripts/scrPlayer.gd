@@ -15,12 +15,10 @@ var hookPos = Vector2()
 var hooked = false
 var ropeLength = 500
 var currentRopeLength
-onready var animatedSprite = get_node("AnimatedSprite")
 onready var animationPlayer = get_node("AnimationPlayer")
 
 func _ready():
 	currentRopeLength = ropeLength
-	animatedSprite.frames.get_frame("idle", 0)
 	
 	
 func _physics_process(delta):
@@ -28,14 +26,17 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("moveRight"):
 		motion.x = min(motion.x+accl,speed)
-		animationPlayer.play("running")
+		animationPlayer.play("Run")
+		get_node("Sprite").set_flip_h(false)
 	
 	elif Input.is_action_pressed("moveLeft"):
 		motion.x = max(motion.x-accl,-speed)
-		animationPlayer.play("running")
+		animationPlayer.play("Run")
+		get_node("Sprite").set_flip_h(true)
 	
 	else:
 		motion.x = lerp(motion.x,0,0.2)
+		animationPlayer.play("Idle")
 		
 	if is_on_floor():
 		if Input.is_action_just_pressed("moveUp"):
@@ -45,7 +46,6 @@ func _physics_process(delta):
 			motion.y = -jump
 		
 	motion = move_and_slide(motion,UP)
-	animationPlayer.play("idle")
 	
 	if global.equipped == [0,0,1]:
 		hook()
