@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TiM_animations_spriteSheet.png-2e895997ac3047f76095f0b169093d20.stex"
+path="res://.import/sprPlayer.png-20fa1e9fa6c59c90df68a0534d8584de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/TiM - character animations/TiM_animations_spriteSheet.png"
-dest_files=[ "res://.import/TiM_animations_spriteSheet.png-2e895997ac3047f76095f0b169093d20.stex" ]
+source_file="res://Sprites/Player/sprPlayer.png"
+dest_files=[ "res://.import/sprPlayer.png-20fa1e9fa6c59c90df68a0534d8584de.stex" ]
 
 [params]
 

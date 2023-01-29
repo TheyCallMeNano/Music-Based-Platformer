@@ -2,7 +2,7 @@
 extends KinematicBody2D
 
 
-const speed = 800
+const speed = 1600
 const jump = -200
 const grav = 12
 const accl = 50

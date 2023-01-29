@@ -92,6 +92,6 @@ margin_bottom = 62.0
 script = ExtResource( 8 )
 
 [node name="Node2D" parent="." instance=ExtResource( 9 )]
-position = Vector2( 6000, -112 )
-scale = Vector2( 1, 10 )
+position = Vector2( 6000, -480 )
+scale = Vector2( 1, 50 )
 script = ExtResource( 10 )
