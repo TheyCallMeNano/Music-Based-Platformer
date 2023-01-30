@@ -5,4 +5,5 @@ func _process(_delta):
 	for body in bodies:
 		if body.name == "Player":
 			global.levelComplete = true
-			get_tree().change_scene("res://Rooms/Shop.tscn")
+			body.position = Vector2(-128,-128)
+			body.motion = Vector2(0,0)
