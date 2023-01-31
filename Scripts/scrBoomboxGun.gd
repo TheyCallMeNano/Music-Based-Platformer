@@ -1,7 +1,21 @@
 extends Sprite
 
-var mousepositoion
+var mpos = Vector2()
+var pos = Vector2()
+var rot
 
 func _process(delta):
-	mousepositoion = get_local_mouse_position()
-	rotation+= mousepositoion.angle() * 0.1
+	mpos = get_global_mouse_position()
+	pos = global_position
+	
+	look_at(get_global_mouse_position())
+	
+	rot = rad2deg((mpos - pos).angle())
+	
+	print(rot)
+
+	if(rot >= -90 and rot <= 90):
+		flip_v = false
+	else:
+		flip_v = true
+

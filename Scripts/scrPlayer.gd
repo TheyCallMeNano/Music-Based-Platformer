@@ -78,7 +78,7 @@ func _process(_delta):
 			global.equipped = [0,0,1]
 
 func hook():
-	$Raycast.look_at(get_global_mouse_position())
+	$sprBoomboxGun/Raycast.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("primaryFire"):
 		hookPos = getHookPos()
 		if hookPos:
@@ -88,7 +88,7 @@ func hook():
 		hooked = false
 
 func getHookPos():
-	for raycast in $Raycast.get_children():
+	for raycast in $sprBoomboxGun/Raycast.get_children():
 		if raycast.is_colliding():
 			return raycast.get_collision_point()
 
