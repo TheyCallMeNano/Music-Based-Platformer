@@ -5,6 +5,14 @@ var pos = Vector2()
 var rot
 
 func _process(delta):
+	
+	if global.slot3 == 1 && global.equipped == [0,0,1]:
+		set_frame(4)
+	elif global.slot3 == 0 && global.equipped == [0,0,1]:
+		set_frame(0)
+	elif global.equipped != [0,0,1]:
+		set_frame(0)
+	
 	mpos = get_global_mouse_position()
 	pos = global_position
 	

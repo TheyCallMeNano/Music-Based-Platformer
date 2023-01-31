@@ -1,6 +1,10 @@
 extends Node
 
 var equipped = [0,0,0]
+var slot1 = 0
+var slot2 = 0
+var slot3 = 0
+var hotbar = [slot1,slot2,slot3]
 var levelComplete = false
 var speedTally = 0
 var score = 100000
@@ -36,3 +40,7 @@ func _ready():
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		saveGame()
+
+func _process(delta):
+	if grappleBought == true:
+		slot3 = 1

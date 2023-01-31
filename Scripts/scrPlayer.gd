@@ -60,7 +60,7 @@ func _physics_process(delta):
 func _draw():
 	#var pos = global_position
 	if hooked:
-		draw_line(Vector2(0,-1), to_local(hookPos), Color(0.35, 0.7, 0.9), 3, true)
+		draw_line(Vector2(-2,-30), to_local(hookPos), Color(0, 1, 0), 3, true)
 	else:
 		return
 		#var colliding = $Raycast.is_colliding()
