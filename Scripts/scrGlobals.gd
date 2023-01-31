@@ -30,9 +30,6 @@ func loadGame():
 		grappleBought = false
 		equipped = [0,0,0]
 
-func _process(_delta):
-	score = int(round(score))
-
 func _ready():
 	loadGame()
 

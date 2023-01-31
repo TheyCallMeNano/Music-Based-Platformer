@@ -12,8 +12,6 @@ func _process(delta):
 	
 	rot = rad2deg((mpos - pos).angle())
 	
-	print(rot)
-
 	if(rot >= -90 and rot <= 90):
 		flip_v = false
 	else:
