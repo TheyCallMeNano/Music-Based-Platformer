@@ -93,7 +93,7 @@ vframes = 3
 script = ExtResource( 5 )
 
 [node name="Raycast" type="Node2D" parent="sprBoomboxGun"]
-position = Vector2( -3.765, 64 )
+position = Vector2( 49.6889, 58.2092 )
 scale = Vector2( 3.76471, 4 )
 __meta__ = {
 "_editor_description_": "DO NOT CHANGE NAME"

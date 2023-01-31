@@ -2,7 +2,7 @@
 extends KinematicBody2D
 
 
-const speed = 1600
+const speed = 800
 const jump = -200
 const grav = 12
 const accl = 50
@@ -15,6 +15,9 @@ var hookPos = Vector2()
 var hooked = false
 var ropeLength = 500
 var currentRopeLength
+
+const ROCKET = preload("res://Objects/objRocket.tscn")
+
 onready var animationPlayer = get_node("AnimationPlayer")
 
 func _ready():
@@ -47,8 +50,11 @@ func _physics_process(delta):
 		
 	motion = move_and_slide(motion,UP)
 	
-	if global.equipped == [0,0,1]:
+	if global.equipped == [0,0,1] && global.slot3 == 1:
 		hook()
+
+	elif global.equipped == [0,1,0] && global.slot2 == 1:
+		rocket()
 	update()
 	if hooked:
 		motion.y += grav
@@ -63,10 +69,6 @@ func _draw():
 		draw_line(Vector2(-2,-30), to_local(hookPos), Color(0, 1, 0), 3, true)
 	else:
 		return
-		#var colliding = $Raycast.is_colliding()
-		#var collidePoint = $Raycast.get_collision_point()
-		#if colliding && pos.distance_to(collidePoint):
-			#draw_line(Vector2(0,-1), to_local(collidePoint), Color(1,1,1), 0.5, true)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("slot1"):
@@ -105,6 +107,12 @@ func hookSwing(delta):
 	
 	motion += (hookPos - global_position).normalized() * 15000 * delta
 
-
 func _on_Node2D_body_entered_(_body):
 	global.speedTally = speed
+
+func rocket():
+	if Input.is_action_just_pressed("primaryFire"):
+		var rocket = ROCKET.instance()
+		rocket.rotation = $sprBoomboxGun.rotation
+		rocket.global_position = $sprBoomboxGun.global_position
+		get_parent().add_child(rocket)
