@@ -121,5 +121,5 @@ func rocket():
 		var rocket = ROCKET.instance()
 		rocket.rotation = $sprBoomboxGun.rotation
 		rocket.position = $sprBoomboxGun.global_position
+		rocket.velocity = Vector2(get_global_mouse_position() - rocket.position)
 		get_parent().add_child(rocket)
-		rocket.velocity = Vector2(get_global_mouse_position() - rocket.global_position)

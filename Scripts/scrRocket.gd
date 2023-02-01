@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
-var velocity = Vector2(0,0)
+var velocity
 var speed = 500
 const EXPLOSION = preload("res://Objects/objExplosion.tscn")
 
 func _physics_process(delta):
-	pass
+	position += velocity/3
 
 func _on_Area2D_body_entered(body):
 	var explosion = EXPLOSION.instance()
