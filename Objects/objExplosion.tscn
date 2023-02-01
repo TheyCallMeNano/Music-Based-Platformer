@@ -26,7 +26,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.17 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -72,9 +72,10 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 35.0143
+radius = 171.29
 
 [node name="Sprite" type="Sprite"]
+visible = false
 texture = ExtResource( 1 )
 hframes = 8
 script = ExtResource( 2 )
