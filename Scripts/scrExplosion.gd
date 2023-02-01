@@ -13,18 +13,13 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	print("mousePos: "+ str(mousePos))
 	if body == $"/root/Hub/Player":
 		if mousePos.y > $"/root/Hub/Player".position.y:
 			$"/root/Hub/Player".motion.y -= repelForce
-			print($"/root/Hub/Player".position)
 		if mousePos.y < $"/root/Hub/Player".position.y:
 			$"/root/Hub/Player".motion.y += repelForce
-			print($"/root/Hub/Player".position)
 		if mousePos.x > $"/root/Hub/Player".position.x:
 			$"/root/Hub/Player".motion.x -= repelForce
-			print($"/root/Hub/Player".position)
 		if mousePos.x < $"/root/Hub/Player".position.x:
 			$"/root/Hub/Player".motion.x += repelForce
-			print($"/root/Hub/Player".position)
 		
