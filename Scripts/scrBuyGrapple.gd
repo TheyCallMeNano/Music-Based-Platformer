@@ -2,7 +2,7 @@ extends Area2D
 
 var isColliding = false
 
-func _on_Grapple_body_entered(body):
+func _on_Area2D_body_entered(body):
 	isColliding = true
 
 func _on_Grapple_body_exited(body):

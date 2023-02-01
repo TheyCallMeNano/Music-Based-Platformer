@@ -1,7 +1,7 @@
 extends Node
 
 var equipped = [0,0,0]
-var slot1 = 0
+var slot1 = 1
 var slot2 = 0
 var slot3 = 0
 var hotbar = [slot1,slot2,slot3]

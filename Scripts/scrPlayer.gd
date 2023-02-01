@@ -2,7 +2,7 @@
 extends KinematicBody2D
 
 
-const speed = 800
+var speed = 800
 const jump = -200
 const grav = 12
 const accl = 50
@@ -48,10 +48,12 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("moveUp"):
 			motion.y = jump
 			jumpsLeft -= 1
-	elif !is_on_floor():
+	if !is_on_floor():
+		$FrozenGround/CollisionShape2D.disabled = true
 		if Input.is_action_just_pressed("moveDown"):
 			motion.y = -jump
 	if is_on_floor():
+		$FrozenGround/CollisionShape2D.disabled = false
 		jumpsLeft = 1
 		
 	motion = move_and_slide(motion,UP)
@@ -61,6 +63,9 @@ func _physics_process(delta):
 
 	elif global.equipped == [0,1,0] && global.slot2 == 1:
 		rocket()
+
+	elif global.equipped == [1,0,0] && global.slot1 == 1:
+		iceGun()
 	update()
 	if hooked:
 		motion.y += grav
@@ -128,3 +133,11 @@ func rocket():
 		rocket.position = $sprBoomboxGun.global_position
 		rocket.velocity = Vector2(get_global_mouse_position() - rocket.position)
 		get_parent().add_child(rocket)
+
+func iceGun():
+	if Input.is_action_pressed("primaryFire"):
+		$sprBoomboxGun/IceGun/CollisionShape2D.disabled = false
+		$sprBoomboxGun/IceGun/Particles2D.emitting = true
+	else:
+		$sprBoomboxGun/IceGun/CollisionShape2D.disabled = true
+		$sprBoomboxGun/IceGun/Particles2D.emitting = false
