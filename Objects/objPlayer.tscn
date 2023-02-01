@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Player/sprPlayer.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/scrPlayer.gd" type="Script" id=2]
@@ -59,6 +59,28 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8, 9 ]
 }
 
+[sub_resource type="Curve" id=5]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 201.273 ), 0.0, 486.234, 0, 0, Vector2( 1, -171.818 ), -212.727, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 250, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 6 )
+scale = 3.0
+scale_random = 1.0
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -104,117 +126,142 @@ position = Vector2( 17, -17 )
 rotation = -1.5708
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast02" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.65806
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast03" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.74533
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast04" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.8326
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast05" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.91986
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast06" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -2.00713
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast07" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -2.0944
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast08" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -2.18166
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast09" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -2.26893
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast10" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -2.35619
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast11" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -2.44346
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast12" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -2.53073
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast13" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -2.61799
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast14" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.48353
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast15" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.39626
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast16" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.309
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast17" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.22173
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast18" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.13446
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast19" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -1.0472
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
 
 [node name="RayCast20" type="RayCast2D" parent="sprBoomboxGun/Raycast"]
 position = Vector2( 17, -17 )
 rotation = -0.959931
 enabled = true
 cast_to = Vector2( 0, 500 )
+collision_mask = 2
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 14, -17 )
+amount = 120
+process_material = SubResource( 7 )

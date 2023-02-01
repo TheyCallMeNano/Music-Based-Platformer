@@ -84,6 +84,11 @@ func _process(_delta):
 	if Input.is_action_just_pressed("slot3"):
 		if global.grappleBought == true:
 			global.equipped = [0,0,1]
+			
+	if Input.is_action_just_pressed("resetLevel"):
+		position = Vector2(-128,-128)
+		motion = Vector2(0,0)
+		global.levelComplete = false
 
 func hook():
 	$sprBoomboxGun/Raycast.look_at(get_global_mouse_position())
