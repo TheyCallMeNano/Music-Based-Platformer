@@ -6,6 +6,7 @@ var mousePos = get_global_mouse_position()
 
 func _ready():
 	animationPlayer.play("Explosion")
+	$AudioStreamPlayer2D.play()
 
 
 
