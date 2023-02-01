@@ -4,7 +4,7 @@ var mpos = Vector2()
 var pos = Vector2()
 var rot
 
-func _process(delta):
+func _process(_delta):
 	
 	if global.slot3 == 1 && global.equipped == [0,0,1]:
 		set_frame(4)

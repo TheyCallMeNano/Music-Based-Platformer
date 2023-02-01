@@ -72,7 +72,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 16.0
+radius = 35.0143
 
 [node name="Sprite" type="Sprite"]
 texture = ExtResource( 1 )
@@ -92,5 +92,6 @@ shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = -7.5
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

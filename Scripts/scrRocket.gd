@@ -7,7 +7,7 @@ func _process(delta):
 	position += (Vector2.RIGHT*speed).rotated(rotation) * delta
 
 
-func _on_Rocket_body_entered(body):
+func _on_Rocket_body_entered(_body):
 	var explosion = EXPLOSION.instance()
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)

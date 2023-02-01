@@ -27,6 +27,7 @@ window/size/resizable=false
 [global]
 
 window=false
+autoload=false
 
 [gui]
 
