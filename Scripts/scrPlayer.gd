@@ -10,11 +10,14 @@ const accl = 50
 const UP = Vector2(0,-1)
 
 var motion = Vector2()
+var jumpsLeft = 2
 
 var hookPos = Vector2()
 var hooked = false
 var ropeLength = 500
 var currentRopeLength
+
+
 
 const ROCKET = preload("res://Objects/objRocket.tscn")
 
@@ -41,12 +44,15 @@ func _physics_process(delta):
 		motion.x = lerp(motion.x,0,0.2)
 		animationPlayer.play("Idle")
 		
-	if is_on_floor():
+	if jumpsLeft != 0:
 		if Input.is_action_just_pressed("moveUp"):
 			motion.y = jump
+			jumpsLeft -= 1
 	elif !is_on_floor():
 		if Input.is_action_just_pressed("moveDown"):
 			motion.y = -jump
+	if is_on_floor():
+		jumpsLeft = 1
 		
 	motion = move_and_slide(motion,UP)
 	
