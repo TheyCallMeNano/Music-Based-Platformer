@@ -75,7 +75,6 @@ tracks/1/keys = {
 radius = 171.29
 
 [node name="Sprite" type="Sprite"]
-visible = false
 texture = ExtResource( 1 )
 hframes = 8
 script = ExtResource( 2 )

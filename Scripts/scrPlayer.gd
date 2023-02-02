@@ -65,7 +65,7 @@ func _physics_process(delta):
 		rocket()
 
 	elif global.equipped == [1,0,0] && global.slot1 == 1:
-		iceGun()
+		pass
 	update()
 	if hooked:
 		motion.y += grav
@@ -133,11 +133,3 @@ func rocket():
 		rocket.position = $sprBoomboxGun.global_position
 		rocket.velocity = Vector2(get_global_mouse_position() - rocket.position)
 		get_parent().add_child(rocket)
-
-func iceGun():
-	if Input.is_action_pressed("primaryFire"):
-		$sprBoomboxGun/IceGun/CollisionShape2D.disabled = false
-		$sprBoomboxGun/IceGun/Particles2D.emitting = true
-	else:
-		$sprBoomboxGun/IceGun/CollisionShape2D.disabled = true
-		$sprBoomboxGun/IceGun/Particles2D.emitting = false
