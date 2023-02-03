@@ -17,6 +17,8 @@ func _process(delta):
 				global.credits -= 500000
 				global.rpgBought = true
 			global.levelComplete = false
+			$ChaChing.play()
 	elif isColliding == false:
 		$Sprite.set_scale(Vector2(.5,.5))
 		$Particles2D.emitting = false
+		$ChaChing.stop()

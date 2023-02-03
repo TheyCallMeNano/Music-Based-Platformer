@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GrappleFire.mp3-c3821226b95e15fcf1547edb6c1e091c.mp3str"
+
+[deps]
+
+source_file="res://Audio/GrappleFire.mp3"
+dest_files=[ "res://.import/GrappleFire.mp3-c3821226b95e15fcf1547edb6c1e091c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ChaChing.mp3-b8b34dd99ddcd6f914414f15e882db51.mp3str"
+
+[deps]
+
+source_file="res://Audio/ChaChing.mp3"
+dest_files=[ "res://.import/ChaChing.mp3-b8b34dd99ddcd6f914414f15e882db51.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

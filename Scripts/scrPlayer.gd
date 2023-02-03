@@ -49,11 +49,9 @@ func _physics_process(delta):
 			motion.y = jump
 			jumpsLeft -= 1
 	if !is_on_floor():
-		$FrozenGround/CollisionShape2D.disabled = true
 		if Input.is_action_just_pressed("moveDown"):
 			motion.y = -jump
 	if is_on_floor():
-		$FrozenGround/CollisionShape2D.disabled = false
 		jumpsLeft = 1
 		
 	motion = move_and_slide(motion,UP)
@@ -75,11 +73,11 @@ func _physics_process(delta):
 		motion = move_and_slide(motion)
 
 func _draw():
-	#var pos = global_position
 	if hooked:
 		draw_line(Vector2(-2,-30), to_local(hookPos), Color(0, 1, 0), 3, true)
 	else:
-		return
+		$GrappleConnect.play()
+		$GrappleFire.play()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("slot1"):
@@ -128,6 +126,7 @@ func _on_Node2D_body_entered_(_body):
 
 func rocket():
 	if Input.is_action_just_pressed("primaryFire"):
+		$RPGFire.play()
 		var rocket = ROCKET.instance()
 		rocket.rotation = $sprBoomboxGun.rotation
 		rocket.position = $sprBoomboxGun.global_position

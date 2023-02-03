@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Player/sprPlayer.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/scrPlayer.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/scrCamera.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/sprBoomboxGun.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/scrBoomboxGun.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/scrFrozen.gd" type="Script" id=7]
+[ext_resource path="res://Audio/Launch.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/GrappleFire.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Audio/GrappleConnect.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.64993
@@ -60,9 +62,6 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 64, 2 )
-
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -86,15 +85,6 @@ offset = Vector2( 0, -70 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
 script = ExtResource( 3 )
-
-[node name="FrozenGround" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrozenGround"]
-position = Vector2( 80, 14 )
-shape = SubResource( 19 )
 
 [node name="sprBoomboxGun" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
@@ -251,4 +241,13 @@ enabled = true
 cast_to = Vector2( 0, 500 )
 collision_mask = 2
 
-[connection signal="area_entered" from="FrozenGround" to="FrozenGround" method="_on_FrozenGround_area_entered"]
+[node name="GrappleFire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+area_mask = 2
+
+[node name="RPGFire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="GrappleConnect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0

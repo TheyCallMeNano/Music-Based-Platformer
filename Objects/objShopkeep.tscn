@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/scrBuySlot3.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/sprUpgrades.png" type="Texture" id=2]
+[ext_resource path="res://Audio/ChaChing.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.122744, 0.31769, 0.700361 )
@@ -45,5 +46,8 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 2
 vframes = 2
+
+[node name="ChaChing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
