@@ -77,17 +77,22 @@ func _draw():
 		draw_line(Vector2(-2,-30), to_local(hookPos), Color(0, 1, 0), 3, true)
 	else:
 		$GrappleConnect.play()
-		$GrappleFire.play()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("slot1"):
 		global.equipped = [1,0,0]
 	if Input.is_action_just_pressed("slot2"):
-		global.equipped = [0,1,0]
+		$MusicPlayer.play("FadeToRPG")
+		$RPGRock.play()
+		if global.rpgBought == true:
+			global.equipped = [0,1,0]
 	if Input.is_action_just_pressed("slot3"):
+		$MusicPlayer.play("FadeToGrapple")
+		$GrappleFunk.play()
 		if global.grappleBought == true:
 			global.equipped = [0,0,1]
-			
+		
+
 	if Input.is_action_just_pressed("resetLevel"):
 		position = Vector2(-128,-128)
 		motion = Vector2(0,0)
