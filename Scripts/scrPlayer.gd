@@ -86,6 +86,16 @@ func _physics_process(delta):
 	if is_on_floor():
 		jumpsLeft = 1
 		
+
+	if Input.is_action_just_pressed("moveRight") && is_on_floor():
+		$Footsteps.play()
+	
+	elif Input.is_action_just_pressed("moveLeft") && is_on_floor():
+		$Footsteps.play()
+	
+	elif Input.is_action_just_released("moveRight") || Input.is_action_just_released("moveLeft"):
+		$Footsteps.stop()
+
 	motion = move_and_slide(motion,UP)
 	
 	if global.equipped == [0,0,1] && global.slot3 == 1:
