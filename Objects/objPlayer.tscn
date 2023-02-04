@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/scrBoomboxGun.gd" type="Script" id=5]
 [ext_resource path="res://Audio/Launch.wav" type="AudioStream" id=6]
 [ext_resource path="res://Audio/Game Music/Fake Funk 2 bar.wav" type="AudioStream" id=7]
-[ext_resource path="res://Audio/GrappleConnect.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/GrappleConnect2.wav" type="AudioStream" id=8]
 [ext_resource path="res://Audio/Game Music/Rock 2 bar.wav" type="AudioStream" id=9]
 [ext_resource path="res://Audio/Game Music/Less Evil 2 bar.wav" type="AudioStream" id=10]
 [ext_resource path="res://Audio/Footsteps.mp3" type="AudioStream" id=11]

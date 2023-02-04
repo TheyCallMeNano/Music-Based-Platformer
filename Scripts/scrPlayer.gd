@@ -98,7 +98,7 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("moveLeft") && is_on_floor() && isDead == false:
 		$Footsteps.play()
 	
-	elif Input.is_action_just_released("moveRight") || Input.is_action_just_released("moveLeft"):
+	elif Input.is_action_just_released("moveRight") || Input.is_action_just_released("moveLeft") || !is_on_floor():
 		$Footsteps.stop()
 
 	motion = move_and_slide(motion,UP)
@@ -109,8 +109,6 @@ func _physics_process(delta):
 	elif global.equipped == [0,1,0] && global.slot2 == 1:
 		rocket()
 
-	elif global.equipped == [1,0,0] && global.slot1 == 1:
-		pass
 	update()
 	if hooked:
 		motion.y += grav
@@ -123,23 +121,21 @@ func _draw():
 	if hooked:
 		draw_line(Vector2(-2,-30), to_local(hookPos), Color(0, 1, 0), 3, true)
 	else:
-		$GrappleConnect.play()
+		pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("slot1"):
-		global.equipped = [1,0,0]
 	if Input.is_action_just_pressed("slot2"):
-		$ShakeController.play("RPGShake")
-		$MusicPlayer.play("FadeToRPG")
-		$RPGRock.play()
 		if global.rpgBought == true:
 			global.equipped = [0,1,0]
+			$ShakeController.play("RPGShake")
+			$MusicPlayer.play("FadeToRPG")
+			$RPGRock.play()
 	if Input.is_action_just_pressed("slot3"):
-		$MusicPlayer.play("FadeToGrapple")
-		$ShakeController.stop()
-		$GrappleFunk.play()
 		if global.grappleBought == true:
 			global.equipped = [0,0,1]
+			$MusicPlayer.play("FadeToGrapple")
+			$ShakeController.stop()
+			$GrappleFunk.play()
 		
 	shakeStrength = lerp(shakeStrength, 0, SHAKEDECAY * delta)
 	$Camera2D.offset = getRandomOffset()
@@ -151,9 +147,6 @@ func _process(delta):
 		global.levelStart = false
 		isDead = false
 		$sprBoomboxGun.visible = true
-		
-	if global.levelComplete == false && motion.x == 0 && global.levelStart == true || global.levelComplete == false && motion.x == -0 && global.levelStart == true:
-		gameOver()
 
 func gameOver():
 	if isDead == false:
@@ -168,6 +161,7 @@ func hook():
 		if hookPos:
 			hooked = true
 			currentRopeLength = global_position.distance_to(hookPos)
+			$GrappleConnect.play()
 	if Input.is_action_just_released("primaryFire") && hooked:
 		hooked = false
 

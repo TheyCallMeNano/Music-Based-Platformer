@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/GrappleConnect.wav-16421759574b6661b71adf05f7cbfad6.sample"
+path="res://.import/GrappleConnect2.wav-8f24bcedd6ef98ee42b0687ad7902106.sample"
 
 [deps]
 
-source_file="res://Audio/GrappleConnect.wav"
-dest_files=[ "res://.import/GrappleConnect.wav-16421759574b6661b71adf05f7cbfad6.sample" ]
+source_file="res://Audio/GrappleConnect2.wav"
+dest_files=[ "res://.import/GrappleConnect2.wav-8f24bcedd6ef98ee42b0687ad7902106.sample" ]
 
 [params]
 
