@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/Player/sprPlayer.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/scrPlayer.gd" type="Script" id=2]
@@ -15,6 +15,22 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.64993
 height = 6.64049
+
+[sub_resource type="Animation" id=10]
+resource_name = "Death"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 20, 21, 22, 23 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -279,6 +295,7 @@ vframes = 7
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Death = SubResource( 10 )
 anims/Idle = SubResource( 2 )
 anims/InAir = SubResource( 9 )
 anims/RESET = SubResource( 3 )

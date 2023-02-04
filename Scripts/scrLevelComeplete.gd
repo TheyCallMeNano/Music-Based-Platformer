@@ -5,6 +5,7 @@ func _process(_delta):
 	for body in bodies:
 		if body.name == "Player":
 			global.levelComplete = true
+			global.levelStart = false
 			global.score = int(round(global.score))
 			global.credits += global.score
 			global.score = 100000

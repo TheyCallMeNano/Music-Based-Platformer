@@ -6,6 +6,7 @@ var slot2 = 0
 var slot3 = 0
 var hotbar = [slot1,slot2,slot3]
 var levelComplete = false
+var levelStart = false
 var speedTally = 0
 var score = 100000
 var grappleBought = false

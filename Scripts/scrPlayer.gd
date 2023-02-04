@@ -28,7 +28,7 @@ var hooked = false
 var ropeLength = 500
 var currentRopeLength
 
-
+var isDead = false
 
 const ROCKET = preload("res://Objects/objRocket.tscn")
 
@@ -62,39 +62,40 @@ func getRandomOffset() -> Vector2:
 func _physics_process(delta):
 	motion.y += grav
 	
-	if Input.is_action_pressed("moveRight"):
+	if Input.is_action_pressed("moveRight") && isDead == false:
 		motion.x = min(motion.x+accl,speed)
 		if is_on_floor():
 			animationPlayer.play("Run")
 			get_node("Sprite").set_flip_h(false)
 	
-	elif Input.is_action_pressed("moveLeft"):
+	elif Input.is_action_pressed("moveLeft") && isDead == false:
 		motion.x = max(motion.x-accl,-speed)
 		if is_on_floor():
 			animationPlayer.play("Run")
 			get_node("Sprite").set_flip_h(true)
 	
 	else:
-		motion.x = lerp(motion.x,0,0.2)
-		if is_on_floor():
-			animationPlayer.play("Idle")
+		if isDead == false:
+			motion.x = lerp(motion.x,0,0.2)
+			if is_on_floor():
+				animationPlayer.play("Idle")
 		
-	if jumpsLeft != 0:
+	if jumpsLeft != 0 && isDead == false:
 		if Input.is_action_just_pressed("moveUp"):
 			motion.y = jump
 			jumpsLeft -= 1
-	if !is_on_floor():
+	if !is_on_floor() && !isDead:
 		animationPlayer.play("InAir")
-		if Input.is_action_just_pressed("moveDown"):
+		if Input.is_action_just_pressed("moveDown") && isDead == false:
 			motion.y = -jump
 	if is_on_floor():
 		jumpsLeft = 1
 		
 
-	if Input.is_action_just_pressed("moveRight") && is_on_floor():
+	if Input.is_action_just_pressed("moveRight") && is_on_floor() && isDead == false:
 		$Footsteps.play()
 	
-	elif Input.is_action_just_pressed("moveLeft") && is_on_floor():
+	elif Input.is_action_just_pressed("moveLeft") && is_on_floor() && isDead == false:
 		$Footsteps.play()
 	
 	elif Input.is_action_just_released("moveRight") || Input.is_action_just_released("moveLeft"):
@@ -147,10 +148,22 @@ func _process(delta):
 		position = Vector2(-128,-128)
 		motion = Vector2(0,0)
 		global.levelComplete = false
+		global.levelStart = false
+		isDead = false
+		$sprBoomboxGun.visible = true
+		
+	if global.levelComplete == false && motion.x == 0 && global.levelStart == true || global.levelComplete == false && motion.x == -0 && global.levelStart == true:
+		gameOver()
+
+func gameOver():
+	if isDead == false:
+		isDead = true
+		animationPlayer.play("Death")
+		$sprBoomboxGun.visible = false
 
 func hook():
 	$sprBoomboxGun/Raycast.look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("primaryFire"):
+	if Input.is_action_just_pressed("primaryFire") && isDead == false:
 		hookPos = getHookPos()
 		if hookPos:
 			hooked = true
@@ -180,7 +193,7 @@ func _on_Node2D_body_entered_(_body):
 	global.speedTally = speed
 
 func rocket():
-	if Input.is_action_just_pressed("primaryFire"):
+	if Input.is_action_just_pressed("primaryFire") && isDead == false:
 		$RPGFire.play()
 		var rocket = ROCKET.instance()
 		rocket.rotation = $sprBoomboxGun.rotation
