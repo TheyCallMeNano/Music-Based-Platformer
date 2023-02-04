@@ -2,10 +2,21 @@
 extends KinematicBody2D
 
 
+export var RANDOMSHAKE: float = 30
+export var SHAKEDECAY: float = 5
+export var SHAKESPEED: float = 30
+export var SHAKESTRENGTH: float = 5
+
 var speed = 800
 const jump = -200
 const grav = 12
 const accl = 50
+
+onready var rand = RandomNumberGenerator.new()
+onready var noise = OpenSimplexNoise.new()
+
+var noiseI: float = 0
+var shakeStrength: float = 0
 
 const UP = Vector2(0,-1)
 
@@ -25,8 +36,29 @@ onready var animationPlayer = get_node("AnimationPlayer")
 
 func _ready():
 	currentRopeLength = ropeLength
+	rand.randomize()
+	noise.seed = rand.randi()
+	noise.period = 2
+	$UnarmedJive.play()
 	
+func shake() -> void:
+	shakeStrength = SHAKESTRENGTH
+
+
+func getNoiseOffset(delta: float) -> Vector2:
+	noiseI += delta * SHAKESPEED
 	
+	return Vector2(
+		noise.get_noise_2d(1, noiseI) * shakeStrength,
+		noise.get_noise_2d(100,noiseI) * shakeStrength
+	)
+
+func getRandomOffset() -> Vector2:
+	return Vector2(
+		rand.randf_range(-shakeStrength, shakeStrength),
+		rand.randf_range(-shakeStrength, shakeStrength)
+	)
+
 func _physics_process(delta):
 	motion.y += grav
 	
@@ -78,21 +110,25 @@ func _draw():
 	else:
 		$GrappleConnect.play()
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed("slot1"):
 		global.equipped = [1,0,0]
 	if Input.is_action_just_pressed("slot2"):
+		$ShakeController.play("RPGShake")
 		$MusicPlayer.play("FadeToRPG")
 		$RPGRock.play()
 		if global.rpgBought == true:
 			global.equipped = [0,1,0]
 	if Input.is_action_just_pressed("slot3"):
 		$MusicPlayer.play("FadeToGrapple")
+		$ShakeController.stop()
 		$GrappleFunk.play()
 		if global.grappleBought == true:
 			global.equipped = [0,0,1]
 		
-
+	shakeStrength = lerp(shakeStrength, 0, SHAKEDECAY * delta)
+	$Camera2D.offset = getRandomOffset()
+		
 	if Input.is_action_just_pressed("resetLevel"):
 		position = Vector2(-128,-128)
 		motion = Vector2(0,0)
