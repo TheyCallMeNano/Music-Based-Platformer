@@ -64,23 +64,27 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("moveRight"):
 		motion.x = min(motion.x+accl,speed)
-		animationPlayer.play("Run")
-		get_node("Sprite").set_flip_h(false)
+		if is_on_floor():
+			animationPlayer.play("Run")
+			get_node("Sprite").set_flip_h(false)
 	
 	elif Input.is_action_pressed("moveLeft"):
 		motion.x = max(motion.x-accl,-speed)
-		animationPlayer.play("Run")
-		get_node("Sprite").set_flip_h(true)
+		if is_on_floor():
+			animationPlayer.play("Run")
+			get_node("Sprite").set_flip_h(true)
 	
 	else:
 		motion.x = lerp(motion.x,0,0.2)
-		animationPlayer.play("Idle")
+		if is_on_floor():
+			animationPlayer.play("Idle")
 		
 	if jumpsLeft != 0:
 		if Input.is_action_just_pressed("moveUp"):
 			motion.y = jump
 			jumpsLeft -= 1
 	if !is_on_floor():
+		animationPlayer.play("InAir")
 		if Input.is_action_just_pressed("moveDown"):
 			motion.y = -jump
 	if is_on_floor():
