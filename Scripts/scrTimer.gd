@@ -19,3 +19,8 @@ func _process(delta):
 		global.score -= minsStore+secsStore*100/global.speedTally
 	else:
 		time = 0
+		
+	if Input.is_action_pressed("resetLevel"):
+		time = 0
+		global.levelComplete = true
+		global.levelStart = false

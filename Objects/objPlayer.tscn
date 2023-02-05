@@ -483,7 +483,6 @@ volume_db = -80.0
 
 [node name="GrappleFunk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
-volume_db = -10.0
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
@@ -491,4 +490,4 @@ pitch_scale = 2.0
 
 [node name="UnarmedJive" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
-volume_db = -10.0
+volume_db = -80.0
