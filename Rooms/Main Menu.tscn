@@ -50,7 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="."]
-modulate = Color( 0.137811, 0.818859, 0.314792, 1 )
+modulate = Color( 0.192347, 0.758681, 0.499088, 1 )
 margin_left = 358.0
 margin_top = 112.0
 margin_right = 922.0

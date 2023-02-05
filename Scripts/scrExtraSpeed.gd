@@ -13,9 +13,9 @@ func _process(delta):
 		$Sprite.set_scale(Vector2(.4,.4))
 		$Particles2D.emitting = true
 		if Input.is_action_just_pressed("interact"):
-			if global.credits >= 50000 && global.speedMultiplier != 600:
+			if global.credits >= 50000 && global.speedMultiplier != 300:
 				global.credits -= 50000
-				global.speedMultiplier += 200
+				global.speedMultiplier += 100
 				$Sprite.frame += 1
 				$ChaChing.play()
 	elif isColliding == false:
