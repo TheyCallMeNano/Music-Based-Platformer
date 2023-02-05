@@ -229,6 +229,7 @@ shape = SubResource( 5 )
 position = Vector2( 5904, -880 )
 texture = ExtResource( 21 )
 
+[connection signal="body_exited" from="LevelStart" to="LevelStart" method="_on_LevelStart_body_exited"]
 [connection signal="body_exited" from="ExtraJump" to="ExtraJump" method="_on_ExtraJump_body_exited"]
 [connection signal="body_exited" from="ExtraSpeed" to="ExtraSpeed" method="_on_ExtraSpeed_body_exited"]
 [connection signal="body_exited" from="RPG" to="RPG" method="_on_RPG_body_exited"]

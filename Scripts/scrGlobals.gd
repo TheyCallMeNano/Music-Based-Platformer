@@ -73,4 +73,9 @@ func _process(delta):
 		slot3 = 1
 	if rpgBought == true:
 		slot2 = 1
+	mils = fmod(time,1)*1000
+	secs = fmod(time,60)
+	mins = fmod(time,60*60) / 60
 	time += delta
+	timePassed = "%02d : %02d : %03d" % [mins,secs,mils]
+	print(timePassed)

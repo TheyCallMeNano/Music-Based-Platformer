@@ -12,8 +12,11 @@ func _process(_delta):
 			global.levelStart = true
 			global.levelComplete = false
 			$CollisionShape2D.disabled = true
-			$ShopDoor.visible = true
-			$ShopDoor.collision_layer = 1
-			$ShopDoor.collision_mask = 1
 			$"/root/Hub/Player/UnarmedJive".play()
 			$"/root/Hub/Player/MusicPlayer".play("FadeToUnarmed")
+
+
+func _on_LevelStart_body_exited(body):
+	$ShopDoor.visible = true
+	$ShopDoor.collision_layer = 1
+	$ShopDoor.collision_mask = 1
