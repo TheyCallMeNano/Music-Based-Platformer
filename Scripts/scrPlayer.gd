@@ -8,8 +8,8 @@ export var SHAKESPEED: float = 30
 export var SHAKESTRENGTH: float = 5
 
 var speed = 800
-const jump = -200
-const grav = 12
+const jump = -375
+const grav = 18
 const accl = 50
 
 onready var rand = RandomNumberGenerator.new()
