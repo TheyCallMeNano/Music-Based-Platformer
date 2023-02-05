@@ -11,6 +11,9 @@ var speedTally = 0
 var score = 100000
 var jumpMultiplier = 1
 var speedMultiplier = 0
+var deaths = 0
+var taxes = 0
+var time = 0
 var grappleBought = false
 var rpgBought = false
 var credits = 500000
@@ -24,6 +27,9 @@ func saveGame():
 	file.store_var(credits)
 	file.store_var(speedMultiplier)
 	file.store_var(jumpMultiplier)
+	file.store_var(deaths)
+	file.store_var(time)
+	file.store_var(taxes)
 	file.close()
 
 func loadGame():
@@ -36,6 +42,9 @@ func loadGame():
 		credits = file.get_var()
 		speedMultiplier = file.get_var()
 		jumpMultiplier = file.get_var()
+		deaths = file.get_var()
+		time = file.get_var()
+		taxes = file.get_var()
 		file.close()
 	else:
 		credits = 0
@@ -44,6 +53,9 @@ func loadGame():
 		rpgBought = false
 		jumpMultiplier = 1
 		speedMultiplier = 0
+		time = 0
+		deaths = 0
+		taxes = 0
 
 func _ready():
 	loadGame()
@@ -52,9 +64,12 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		saveGame()
 
-# warning-ignore:unused_argument
 func _process(delta):
 	if grappleBought == true:
 		slot3 = 1
 	if rpgBought == true:
 		slot2 = 1
+	time += delta
+	var mils = fmod(time,1)*1000
+	var secs = fmod(time,60)
+	var mins = fmod(time,60*60) / 60

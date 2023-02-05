@@ -101,7 +101,10 @@ script = ExtResource( 17 )
 texture = ExtResource( 20 )
 hframes = 3
 vframes = 3
-frame = 3
+frame = 4
+
+[node name="Label" parent="ExtraJump" index="3"]
+text = "Press F to spend 50000"
 
 [node name="ExtraSpeed" parent="." instance=ExtResource( 11 )]
 position = Vector2( -660, -180 )
@@ -111,6 +114,9 @@ script = ExtResource( 18 )
 texture = ExtResource( 20 )
 hframes = 3
 vframes = 3
+
+[node name="Label" parent="ExtraSpeed" index="3"]
+text = "Press F to spend 50000"
 
 [node name="RPG" parent="." instance=ExtResource( 11 )]
 position = Vector2( -710, -250 )
