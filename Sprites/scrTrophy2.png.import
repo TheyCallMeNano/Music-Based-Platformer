@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scrTrophy.png-b4c1f0764898cc6fb0f786ca7dab42ce.stex"
+path="res://.import/scrTrophy2.png-d76e0e0eada93838c9a3262200b04c74.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/scrTrophy.png"
-dest_files=[ "res://.import/scrTrophy.png-b4c1f0764898cc6fb0f786ca7dab42ce.stex" ]
+source_file="res://Sprites/scrTrophy2.png"
+dest_files=[ "res://.import/scrTrophy2.png-d76e0e0eada93838c9a3262200b04c74.stex" ]
 
 [params]
 
