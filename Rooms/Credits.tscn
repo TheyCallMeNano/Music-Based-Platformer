@@ -24,7 +24,7 @@ margin_right = 1280.0
 margin_bottom = 720.0
 custom_fonts/font = SubResource( 1 )
 text = "Programmer/Designer/Director - TheyCallMeNano
-Artist/Composer/SFX/Programmer - m00tY
+\"Artist\"/Music/SFX/Programmer - m00tY
 Explosion VFX - ansimuz
 Laboratory Tileset - exceptrea
 Font - SciGho
@@ -37,7 +37,7 @@ Coach Holden for the \"Doombox\" title idea
 
 Thanks for playing our game!
 
-We had a ton of fun making it and working on game jams again! These last 9 days have  been quite the laborious blast but we love the end product!"
+We had a ton of fun working on this project, and were very happy to pariticipate in a game jam again! These last 9 days have been quite the aborious blast but we love the end product!"
 align = 1
 autowrap = true
 
