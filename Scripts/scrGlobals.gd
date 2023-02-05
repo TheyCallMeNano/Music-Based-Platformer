@@ -14,9 +14,13 @@ var speedMultiplier = 0
 var deaths = 0
 var taxes = 0
 var time = 0
+var mils = fmod(time,1)*1000
+var secs = fmod(time,60)
+var mins = fmod(time,60*60) / 60
+var timePassed = "%02d : %02d : %03d" % [mins,secs,mils]
 var grappleBought = false
 var rpgBought = false
-var credits = 500000
+var credits = 0
 var saveFile = "user://data.jjii"
 
 func saveGame():
@@ -50,7 +54,7 @@ func loadGame():
 		credits = 0
 		grappleBought = false
 		equipped = [0,0,0]
-		rpgBought = false
+		rpgBought = true
 		jumpMultiplier = 1
 		speedMultiplier = 0
 		time = 0
@@ -70,6 +74,3 @@ func _process(delta):
 	if rpgBought == true:
 		slot2 = 1
 	time += delta
-	var mils = fmod(time,1)*1000
-	var secs = fmod(time,60)
-	var mins = fmod(time,60*60) / 60

@@ -41,6 +41,7 @@ func _ready():
 	noise.seed = rand.randi()
 	noise.period = 2
 	$ShopPiano.play()
+	$ShopPiano.set_volume_db(0)
 	
 func shake() -> void:
 	shakeStrength = SHAKESTRENGTH
@@ -152,6 +153,10 @@ func _process(delta):
 	$Camera2D.offset = getRandomOffset()
 		
 	if Input.is_action_just_pressed("resetLevel"):
+		$ShopPiano.play()
+		$MusicPlayer.play("FadeToShop")
+		$GrappleFunk.stop()
+		$RPGRock.stop()
 		position = Vector2(-128,-128)
 		motion = Vector2(0,0)
 		global.levelComplete = false
@@ -215,7 +220,7 @@ func hookSwing(delta):
 	if global_position.distance_to(hookPos) > currentRopeLength:
 		global_position = hookPos + radius.normalized() * currentRopeLength
 	
-	motion += (hookPos - global_position).normalized() * 15000 * delta
+	motion += (hookPos - global_position).normalized() * 10000 * delta
 
 func _on_Node2D_body_entered_(_body):
 	global.speedTally = speed
