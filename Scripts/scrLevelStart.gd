@@ -6,3 +6,5 @@ func _process(_delta):
 		if body.name == "Player":
 			global.levelStart = true
 			global.levelComplete = false
+			$"/root/Hub/Player/ShopPiano".stop()
+			$"/root/Hub/Player/UnarmedJive".play()

@@ -9,5 +9,7 @@ func _process(_delta):
 			global.score = int(round(global.score))
 			global.credits += global.score
 			global.score = 100000
+			$"/root/Hub/Player/ShopPiano".play()
+			$"/root/Hub/Player/UnarmedJive".stop()
 			body.position = Vector2(-128,-128)
 			body.motion = Vector2(0,0)

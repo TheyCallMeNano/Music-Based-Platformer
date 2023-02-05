@@ -40,7 +40,7 @@ func _ready():
 	rand.randomize()
 	noise.seed = rand.randi()
 	noise.period = 2
-	$UnarmedJive.play()
+	$ShopPiano.play()
 	
 func shake() -> void:
 	shakeStrength = SHAKESTRENGTH
@@ -108,10 +108,15 @@ func _physics_process(delta):
 	motion = move_and_slide(motion,UP)
 	
 	if global.equipped == [0,0,1] && global.slot3 == 1:
+		$sprBoomboxGun.visible = true
 		hook()
 
 	elif global.equipped == [0,1,0] && global.slot2 == 1:
+		$sprBoomboxGun.visible = true
 		rocket()
+	
+	elif global.equipped == [0,0,0]:
+		$sprBoomboxGun.visible = false
 	
 	spawnParticle()
 	
@@ -152,16 +157,19 @@ func _process(delta):
 		global.levelComplete = false
 		global.levelStart = false
 		isDead = false
+		global.taxes += global.credits/2
 		global.credits = global.credits/2
 		if global.jumpMultiplier != 1:
 			global.jumpMultiplier -= 0.5
 		if global.speedMultiplier > 0:
 			global.speedMultiplier -= 100
-		print(global.jumpMultiplier)
+		global.deaths += 1
 		$sprBoomboxGun.visible = true
 		$DeathText.visible_characters = 0
 		$Respawn.visible_characters = 0
 		$BlackBar.modulate = Color(0,0,0,0)
+		$ShopPiano.play()
+		$UnarmedJive.stop()
 
 func spawnParticle():
 	if motion.x == 0:

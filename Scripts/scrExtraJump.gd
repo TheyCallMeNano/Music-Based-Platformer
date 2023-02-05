@@ -20,6 +20,7 @@ func _process(delta):
 	if isColliding == true:
 		$Sprite.set_scale(Vector2(.4,.4))
 		$Particles2D.emitting = true
+		$Label.visible = true
 		if Input.is_action_just_pressed("interact"):
 			if global.credits >= 50000 && global.jumpMultiplier != 2.5:
 				global.credits -= 50000
@@ -28,8 +29,9 @@ func _process(delta):
 				$ChaChing.play()
 	elif isColliding == false:
 		$Sprite.set_scale(Vector2(.3,.3))
+		$Label.visible = false
 		$Particles2D.emitting = false
 		$ChaChing.stop()
 	
-	if Input.is_action_just_pressed("resetLevel") && $Sprite.frame != 3:
+	if Input.is_action_just_pressed("resetLevel") && $Sprite.frame != 4:
 		$Sprite.frame -= 1

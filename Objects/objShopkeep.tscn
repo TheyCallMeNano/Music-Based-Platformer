@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/scrBuySlot3.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/sprUpgrades.png" type="Texture" id=2]
 [ext_resource path="res://Audio/ChaChing.wav" type="AudioStream" id=3]
+[ext_resource path="res://Fonts/80s-retro-future.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.122744, 0.31769, 0.700361 )
@@ -29,6 +30,12 @@ color_ramp = SubResource( 4 )
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
 
+[sub_resource type="DynamicFont" id=5]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
 [node name="Area2D" type="Area2D"]
 script = ExtResource( 1 )
 
@@ -46,6 +53,14 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 2
 vframes = 2
+
+[node name="Label" type="Label" parent="."]
+margin_left = -83.0
+margin_top = 16.0
+margin_right = 84.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 5 )
+text = "Press F to spend 250000"
 
 [node name="ChaChing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
