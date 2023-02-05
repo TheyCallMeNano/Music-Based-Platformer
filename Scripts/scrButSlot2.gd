@@ -12,7 +12,7 @@ func _process(delta):
 	if isColliding == true:
 		$Sprite.set_scale(Vector2(1,1))
 		$Particles2D.emitting = true
-		if Input.is_action_pressed("interact"):
+		if Input.is_action_just_pressed("interact"):
 			if global.credits >= 500000 && global.rpgBought == false:
 				global.credits -= 500000
 				global.rpgBought = true

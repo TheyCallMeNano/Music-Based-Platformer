@@ -8,7 +8,7 @@ export var SHAKESPEED: float = 30
 export var SHAKESTRENGTH: float = 5
 
 var speed = 800
-const jump = -375
+var jump = -375
 const grav = 18
 const accl = 50
 
@@ -63,13 +63,13 @@ func _physics_process(delta):
 	motion.y += grav
 	
 	if Input.is_action_pressed("moveRight") && isDead == false:
-		motion.x = min(motion.x+accl,speed)
+		motion.x = min(motion.x+accl,speed+global.speedMultiplier)
 		if is_on_floor():
 			animationPlayer.play("Run")
 			get_node("Sprite").set_flip_h(false)
 	
 	elif Input.is_action_pressed("moveLeft") && isDead == false:
-		motion.x = max(motion.x-accl,-speed)
+		motion.x = max(motion.x-accl,-speed+-global.speedMultiplier)
 		if is_on_floor():
 			animationPlayer.play("Run")
 			get_node("Sprite").set_flip_h(true)
@@ -82,8 +82,10 @@ func _physics_process(delta):
 		
 	if jumpsLeft != 0 && isDead == false:
 		if Input.is_action_just_pressed("moveUp"):
+			jump *= global.jumpMultiplier
 			motion.y = jump
 			jumpsLeft -= 1
+			jump = -375
 	if !is_on_floor() && !isDead:
 		animationPlayer.play("InAir")
 		if Input.is_action_just_pressed("moveDown") && isDead == false:
@@ -146,7 +148,15 @@ func _process(delta):
 		global.levelComplete = false
 		global.levelStart = false
 		isDead = false
+		global.credits = global.credits/2
+		if global.jumpMultiplier > 0:
+			global.jumpMultiplier -= 1
+		if global.speedMultiplier > 0:
+			global.speedMultiplier -= 200
 		$sprBoomboxGun.visible = true
+		$DeathText.visible_characters = 0
+		$Respawn.visible_characters = 0
+		$BlackBar.modulate = Color(0,0,0,0)
 
 func gameOver():
 	if isDead == false:

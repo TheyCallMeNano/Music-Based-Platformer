@@ -9,6 +9,8 @@ var levelComplete = true
 var levelStart = false
 var speedTally = 0
 var score = 100000
+var jumpMultiplier = 1
+var speedMultiplier = 0
 var grappleBought = false
 var rpgBought = false
 var credits = 500000
@@ -20,6 +22,8 @@ func saveGame():
 	file.store_var(grappleBought)
 	file.store_var(rpgBought)
 	file.store_var(credits)
+	file.store_var(speedMultiplier)
+	file.store_var(jumpMultiplier)
 	file.close()
 
 func loadGame():
@@ -30,12 +34,16 @@ func loadGame():
 		grappleBought = file.get_var()
 		rpgBought = file.get_var()
 		credits = file.get_var()
+		speedMultiplier = file.get_var()
+		jumpMultiplier = file.get_var()
 		file.close()
 	else:
 		credits = 0
 		grappleBought = false
 		equipped = [0,0,0]
 		rpgBought = false
+		jumpMultiplier = 1
+		speedMultiplier = 0
 
 func _ready():
 	loadGame()
