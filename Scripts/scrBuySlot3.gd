@@ -16,8 +16,7 @@ func _process(delta):
 			if global.credits >= 500000 && global.grappleBought == false:
 				global.credits -= 500000
 				global.grappleBought = true
-			global.levelComplete = false
-			$ChaChing.play()
+				$ChaChing.play()
 	elif isColliding == false:
 		$Sprite.set_scale(Vector2(.5,.5))
 		$Particles2D.emitting = false

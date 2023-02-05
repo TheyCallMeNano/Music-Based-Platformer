@@ -1,11 +1,11 @@
 extends Node
 
 var equipped = [0,0,0]
-var slot1 = 1
+var slot1 = 0
 var slot2 = 0
 var slot3 = 0
 var hotbar = [slot1,slot2,slot3]
-var levelComplete = false
+var levelComplete = true
 var levelStart = false
 var speedTally = 0
 var score = 100000
@@ -20,7 +20,6 @@ func saveGame():
 	file.store_var(grappleBought)
 	file.store_var(rpgBought)
 	file.store_var(credits)
-	file.store_var(equipped)
 	file.close()
 
 func loadGame():
@@ -31,7 +30,6 @@ func loadGame():
 		grappleBought = file.get_var()
 		rpgBought = file.get_var()
 		credits = file.get_var()
-		equipped = file.get_var()
 		file.close()
 	else:
 		credits = 0
@@ -46,6 +44,7 @@ func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		saveGame()
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if grappleBought == true:
 		slot3 = 1

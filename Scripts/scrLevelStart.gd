@@ -5,3 +5,4 @@ func _process(_delta):
 	for body in bodies:
 		if body.name == "Player":
 			global.levelStart = true
+			global.levelComplete = false

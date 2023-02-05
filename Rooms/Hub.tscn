@@ -99,10 +99,10 @@ margin_bottom = -178.0
 script = ExtResource( 8 )
 
 [node name="Control" parent="Player" instance=ExtResource( 3 )]
-margin_left = -48.0
-margin_top = 32.0
-margin_right = -8.0
-margin_bottom = 72.0
+margin_left = -36.3881
+margin_top = 31.6254
+margin_right = 3.61188
+margin_bottom = 71.6254
 rect_scale = Vector2( 0.75, 0.75 )
 
 [node name="Node2D" parent="." instance=ExtResource( 9 )]

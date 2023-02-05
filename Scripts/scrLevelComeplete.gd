@@ -3,7 +3,7 @@ extends Area2D
 func _process(_delta):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
-		if body.name == "Player":
+		if body.name == "Player" && global.levelComplete == false:
 			global.levelComplete = true
 			global.levelStart = false
 			global.score = int(round(global.score))

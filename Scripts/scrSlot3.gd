@@ -6,4 +6,3 @@ func _process(_delta):
 		set_frame(0)
 	elif global.slot3 == 0:
 		self.visible = false
-		set_frame(0)

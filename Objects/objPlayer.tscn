@@ -306,6 +306,9 @@ anims/FadeToGrapple = SubResource( 5 )
 anims/FadeToRPG = SubResource( 6 )
 anims/RESET = SubResource( 7 )
 
+[node name="ShakeController" type="AnimationPlayer" parent="."]
+anims/RPGShake = SubResource( 8 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -70 )
 current = true
@@ -482,13 +485,10 @@ volume_db = -80.0
 stream = ExtResource( 7 )
 volume_db = -10.0
 
-[node name="UnarmedJive" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 10 )
-volume_db = -10.0
-
-[node name="ShakeController" type="AnimationPlayer" parent="."]
-anims/RPGShake = SubResource( 8 )
-
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
 pitch_scale = 2.0
+
+[node name="UnarmedJive" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
