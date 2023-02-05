@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tsShopDecor.png-eb9d8c6c47f1236cdbac6d0e75039403.stex"
+path="res://.import/0_64.png-19fda07b235d5e56e7b267e97cc5680b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/tsShopDecor.png"
-dest_files=[ "res://.import/tsShopDecor.png-eb9d8c6c47f1236cdbac6d0e75039403.stex" ]
+source_file="res://Sprites/Tilesets/0_64.png"
+dest_files=[ "res://.import/0_64.png-19fda07b235d5e56e7b267e97cc5680b.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
