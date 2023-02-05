@@ -54,7 +54,7 @@ func loadGame():
 		credits = 0
 		grappleBought = false
 		equipped = [0,0,0]
-		rpgBought = true
+		rpgBought = false
 		jumpMultiplier = 1
 		speedMultiplier = 0
 		time = 0
