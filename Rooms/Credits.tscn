@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/80s-retro-future.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/scrBack.gd" type="Script" id=2]
 [ext_resource path="res://Objects/objTransition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/Game Music/Menu Tunes 2 bar.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -57,5 +58,10 @@ margin_left = -16.0
 margin_top = -672.0
 margin_right = 1141.0
 margin_bottom = 12.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 640, 272 )
+stream = ExtResource( 4 )
+autoplay = true
 
 [connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

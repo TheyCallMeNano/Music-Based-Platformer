@@ -8,6 +8,14 @@ func _on_Area2D_body_entered(body):
 func _on_ExtraSpeed_body_exited(body):
 	isColliding = false
 
+func _ready():
+	if global.speedMultiplier == 100:
+		$Sprite.frame = 0
+	elif global.speedMultiplier == 200:
+		$Sprite.frame = 1
+	elif global.speedMultiplier == 300:
+		$Sprite.frame = 2
+
 func _process(delta):
 	if isColliding == true:
 		$Sprite.set_scale(Vector2(.4,.4))
@@ -22,3 +30,6 @@ func _process(delta):
 		$Sprite.set_scale(Vector2(.3,.3))
 		$Particles2D.emitting = false
 		$ChaChing.stop()
+	
+	if Input.is_action_just_pressed("resetLevel") && $Sprite.frame != 0:
+		$Sprite.frame -= 1

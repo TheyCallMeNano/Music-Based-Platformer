@@ -83,7 +83,8 @@ func _physics_process(delta):
 		
 	if jumpsLeft != 0 && isDead == false:
 		if Input.is_action_just_pressed("moveUp"):
-			jump *= global.jumpMultiplier
+			if global.jumpMultiplier > 1:
+				jump *= global.jumpMultiplier
 			motion.y = jump
 			jumpsLeft -= 1
 			jump = -375
@@ -153,9 +154,9 @@ func _process(delta):
 		isDead = false
 		global.credits = global.credits/2
 		if global.jumpMultiplier != 1:
-			global.jumpMultiplier -= 1
+			global.jumpMultiplier -= 0.5
 		if global.speedMultiplier > 0:
-			global.speedMultiplier -= 200
+			global.speedMultiplier -= 100
 		print(global.jumpMultiplier)
 		$sprBoomboxGun.visible = true
 		$DeathText.visible_characters = 0
