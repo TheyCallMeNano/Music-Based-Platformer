@@ -149,10 +149,11 @@ func _process(delta):
 		global.levelStart = false
 		isDead = false
 		global.credits = global.credits/2
-		if global.jumpMultiplier > 0:
+		if global.jumpMultiplier != 1:
 			global.jumpMultiplier -= 1
 		if global.speedMultiplier > 0:
 			global.speedMultiplier -= 200
+		print(global.jumpMultiplier)
 		$sprBoomboxGun.visible = true
 		$DeathText.visible_characters = 0
 		$Respawn.visible_characters = 0
