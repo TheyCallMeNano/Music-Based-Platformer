@@ -1,14 +1,14 @@
 #This is essentially what we are modifiying
 extends KinematicBody2D
 
-
+export(PackedScene) var footStep
 export var RANDOMSHAKE: float = 30
 export var SHAKEDECAY: float = 5
 export var SHAKESPEED: float = 30
 export var SHAKESTRENGTH: float = 5
 
-var speed = 800
-var jump = -375
+export var speed = 800
+export var jump = -375
 const grav = 18
 const accl = 50
 
@@ -17,6 +17,7 @@ onready var noise = OpenSimplexNoise.new()
 
 var noiseI: float = 0
 var shakeStrength: float = 0
+var lastStep = 0
 
 const UP = Vector2(0,-1)
 
@@ -110,7 +111,9 @@ func _physics_process(delta):
 
 	elif global.equipped == [0,1,0] && global.slot2 == 1:
 		rocket()
-
+	
+	spawnParticle()
+	
 	update()
 	if hooked:
 		motion.y += grav
@@ -158,6 +161,17 @@ func _process(delta):
 		$DeathText.visible_characters = 0
 		$Respawn.visible_characters = 0
 		$BlackBar.modulate = Color(0,0,0,0)
+
+func spawnParticle():
+	if motion.x == 0:
+		lastStep = -1
+	if $AnimationPlayer.current_animation == "Run":
+		if lastStep != $Sprite.frame:
+			lastStep = $Sprite.frame
+			var fs = footStep.instance()
+			fs.emitting = true
+			fs.global_position = Vector2(global_position.x,global_position.y+12)
+			get_parent().add_child(fs)
 
 func gameOver():
 	if isDead == false:

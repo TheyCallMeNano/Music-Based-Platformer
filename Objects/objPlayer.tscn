@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Sprites/Player/sprPlayer.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/scrPlayer.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Audio/Footsteps.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Sprites/sprSlot.png" type="Texture" id=12]
 [ext_resource path="res://Fonts/80s-retro-future.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Objects/objFootstep.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.64993
@@ -328,6 +329,7 @@ font_data = ExtResource( 13 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+footStep = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
