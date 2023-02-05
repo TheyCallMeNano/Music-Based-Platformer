@@ -11,7 +11,7 @@ var speedTally = 0
 var score = 100000
 var grappleBought = false
 var rpgBought = false
-var credits = 0
+var credits = 500000
 var saveFile = "user://data.jjii"
 
 func saveGame():

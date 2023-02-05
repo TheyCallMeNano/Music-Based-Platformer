@@ -16,6 +16,6 @@ func _process(delta):
 		var timePassed = "%02d : %02d : %03d" % [mins,secs,mils]
 		text = timePassed
 		global.speedTally = $"/root/Hub/Player".speed
-		global.score -= minsStore+secsStore*1000/global.speedTally
+		global.score -= minsStore+secsStore*100/global.speedTally
 	else:
 		time = 0
